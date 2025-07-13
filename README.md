@@ -1,3 +1,11 @@
+WARNING
+===
+THIS IS A WORK IN PROGRESS AND MIGHT EAT YOUR CAT
+
+Credits
+===
+This is entirely based on https://github.com/x3kim/DumbShort/, just edited to my needs
+
 Requirements
 ===
 * python3
