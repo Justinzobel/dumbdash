@@ -8,11 +8,11 @@ npm
 Install
 ===
 npm install
-./node_modules/.bin/tailwindcss -i ./static/css/input.css -o ./static/css/output.css
+`./node_modules/.bin/tailwindcss -i ./static/css/input.css -o ./static/css/output.css`
 
 Run
 ===
-python app.py
+`python app.py`
 
 View
 ===
