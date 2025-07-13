@@ -55,63 +55,6 @@
       </header>
 
       <main class="py-8">
-        <!-- ########## VIEW 1: HOME ########## -->
-        <div id="overview-view">
-
-
-          <div class="w-full max-w-3xl mx-auto space-y-8">
-            <div class="relative">
-              <input
-                type="text"
-                id="url-input"
-                class="w-full p-4 text-lg bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                placeholder=">Type hostname and press Enter or Space"
-              />
-            </div>
-
-            <div
-              id="result-area"
-              class="hidden bg-blue-50 dark:bg-gray-800 p-6 rounded-lg space-y-4"
-            >
-              <h3 class="font-bold text-lg">🎊 Server added!</h3>
-              <div>
-                <label
-                  for="original-url-display"
-                  class="text-sm font-medium text-gray-500"
-                  >Original URL</label
-                >
-                <p
-                  id="original-url-display"
-                  class="truncate text-gray-700 dark:text-gray-300"
-                ></p>
-              </div>
-              <div>
-                <label
-                  for="short-url-display"
-                  class="text-sm font-medium text-gray-500"
-                  >Short URL</label
-                >
-                <div class="flex items-center space-x-2 mt-1">
-                  <input
-                    type="text"
-                    readonly
-                    id="short-url-display"
-                    class="w-full bg-transparent border-none p-2 text-blue-600 dark:text-blue-400 font-mono text-xl focus:ring-0"
-                  />
-                  <button
-                    id="copy-button"
-                    class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all flex-shrink-0"
-                  >
-                    Copy
-                  </button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- ########## VIEW 2: ADD NEW ########## -->
         <div id="home-view" class="hidden">
           <div
             id="stats-area"
