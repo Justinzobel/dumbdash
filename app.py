@@ -23,7 +23,7 @@ def init_db():
     ''')
     conn.commit()
     conn.close()
-    print("Datenbank-Initialisierung geprüft.")
+    print("Database intialised.")
 
 
 init_db()
@@ -64,7 +64,7 @@ def get_stats():
 def update_api():
     data = request.get_json()
     if not data or 'hostname' not in data:
-        return jsonify({'error': 'URL fehlt.'}), 400
+        return jsonify({'error': 'Bad request.'}), 400
 
     hostname = data['hostname']
     cpus = data['cpus']
