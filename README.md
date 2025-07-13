@@ -1,9 +1,9 @@
 Requirements
 ===
-python3
-python3-flask
-python3-gunicorn
-npm
+* python3
+* python3-flask
+* python3-gunicorn
+* npm
 
 Install
 ===
