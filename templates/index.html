@@ -207,7 +207,6 @@
 
       const setupEventListeners = () => {
         fetchAndDisplayDevices();
-        resetToHomeView();
 
         devicesTableBody.addEventListener("click", (event) => {
           if (event.target.classList.contains("delete-button")) {
