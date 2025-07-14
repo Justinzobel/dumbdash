@@ -183,7 +183,7 @@
         if (!confirm("Are you sure you want to delete this device?"))
           return;
         try {
-          await fetch(`/api/device/${deviceId}`, { method: "DELETE" });
+          await fetch(`/api/devices/${deviceId}`, { method: "DELETE" });
           fetchAndDisplayDevices();
           fetchStats();
         } catch (error) {
