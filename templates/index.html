@@ -148,7 +148,7 @@
           const row = document.createElement("tr");
           row.className =
             "border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50";
-          row.dataset.search = ${device.hostname} ${device.cpus} ${device.ram} ${device.rootdisksize};
+          row.dataset.search = device.hostname device.cpus device.ram device.rootdisks;
           const nameDisplay = device.hostname
           row.innerHTML = `
             <td class="p-4 cursor-pointer" data-id="${device.hostname}"><div class="name-container">${nameDisplay}</div></td>
