@@ -75,6 +75,8 @@
                   <th class="p-4 w-28">CPUs</th>
                   <th class="p-4 w-28">RAM (GB)</th>
                   <th class="p-4 w-28">Root Disk (GB)</th>
+                  <th class="p-4 w-28">Public IP</th>
+                  <th class="p-4 w-28">Private IP</th>
                   <th class="p-4 w-28">Delete</th>
                 </tr>
               </thead>
@@ -148,13 +150,15 @@
           const row = document.createElement("tr");
           row.className =
             "border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50";
-          row.dataset.search = `${device.hostname} ${device.cpus} ${device.ram} ${device.rootdisksize}`.toLowerCase();
+          row.dataset.search = `${device.hostname} ${device.cpus} ${device.ram} ${device.rootdisksize} ${device.pubip} ${device.privip}`.toLowerCase();
           const nameDisplay = device.hostname
           row.innerHTML = `
             <td class="p-4 cursor-pointer" data-id="${device.hostname}"><div class="name-container">${nameDisplay}</div></td>
             <td class="p-4">${device.cpus}</a></td>
             <td class="p-4">${device.ram}</a></td>
             <td class="p-4">${device.rootdisksize}</td>
+            <td class="p-4">${device.pubip}</td>
+            <td class="p-4">${device.privip}</td>
             <td class="p-4"><button class="delete-button text-red-500 hover:text-red-700 font-semibold" data-id="${device.id}">Delete</button></td>
           `;
           devicesTableBody.appendChild(row);

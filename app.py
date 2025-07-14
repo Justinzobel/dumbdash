@@ -15,7 +15,7 @@ def init_db():
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS devices (
             id INTEGER PRIMARY KEY AUTOINCREMENT, hostname TEXT, cpus INTEGER,
-            ram INTEGER, rootdisksize INTEGER
+            ram INTEGER, rootdisksize INTEGER, pubip TEXT, privip TEXT
         )
     ''')
     cursor.execute('''
@@ -70,16 +70,19 @@ def update_api():
     cpus = data['cpus']
     ram = data['ram']
     rootdisksize = data['rootdisksize']
+    pubip = data['pubip']
+    privip = data['privip']
+
 
     db = get_db()
     existing_device = db.execute('SELECT id FROM devices WHERE hostname = ?', (hostname,)).fetchone()
     if existing_device:
         print("Existing device.")
         id = existing_device['id']
-        cursor = db.execute('UPDATE devices SET hostname = ?, cpus = ?, ram = ?, rootdisksize = ? WHERE id = ?', (hostname, cpus, ram, rootdisksize, id))
+        cursor = db.execute('UPDATE devices SET hostname = ?, cpus = ?, ram = ?, rootdisksize = ?, pubip = ?, privip = ? WHERE id = ?', (hostname, cpus, ram, rootdisksize, pubip, privip, id))
         db.commit()
     else:
-        cursor = db.execute('INSERT INTO devices (hostname, cpus, ram, rootdisksize) VALUES (?, ?, ?, ?)', (hostname, cpus, ram, rootdisksize))
+        cursor = db.execute('INSERT INTO devices (hostname, cpus, ram, rootdisksize, pubip, privip) VALUES (?, ?, ?, ?, ?, ?)', (hostname, cpus, ram, rootdisksize, pubip, privip))
         db.commit()
     return jsonify({'status': 'Success.'}), 200
 
@@ -87,7 +90,7 @@ def update_api():
 @app.route('/api/devices', methods=['GET'])
 def get_devices():
     db = get_db()
-    devices = db.execute('SELECT id, hostname, cpus, ram, rootdisksize FROM devices ORDER BY hostname ASC').fetchall()
+    devices = db.execute('SELECT id, hostname, cpus, ram, rootdisksize, pubip, privip FROM devices ORDER BY hostname ASC').fetchall()
     return jsonify([dict(row) for row in devices])
 
 @app.route('/api/services', methods=['GET'])
