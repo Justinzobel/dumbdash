@@ -117,7 +117,6 @@
     <script>
       // ########## GET DOM ELEMENTS ##########
       const homeView = document.getElementById("home-view");
-      const overviewView = document.getElementById("overview-view");
       const viewToggleButton = document.getElementById("view-toggle-button");
       const urlInput = document.getElementById("url-input");
       const resultArea = document.getElementById("result-area");
@@ -136,12 +135,6 @@
 
       // ########## FUNCTION DEFINITIONS ##########
 
-      // Funktion, um die Ansicht zuverlässig auf den Startzustand zurückzusetzen
-      const resetToHomeView = () => {
-        homeView.classList.remove("hidden");
-        overviewView.classList.add("hidden");
-        viewToggleButton.textContent = "Add Server";
-      };
 
       const fetchAndDisplayDevices = async () => {
         try {
@@ -213,16 +206,8 @@
       };
 
       const setupEventListeners = () => {
-        viewToggleButton.addEventListener("click", () => {
-          const isHomeVisible = !homeView.classList.contains("hidden");
-          if (isHomeVisible) {
-            homeView.classList.add("hidden");
-            overviewView.classList.remove("hidden");
-            viewToggleButton.textContent = "Back to Main";
             fetchAndDisplayDevices();
-          } else {
             resetToHomeView();
-          }
         });
 
         urlInput.addEventListener("keydown", (event) => {
