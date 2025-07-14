@@ -206,16 +206,8 @@
       };
 
       const setupEventListeners = () => {
-            fetchAndDisplayDevices();
-            resetToHomeView();
-        };
-
-        urlInput.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            shortenUrl(urlInput.value.trim());
-          }
-        });
+        fetchAndDisplayDevices();
+        resetToHomeView();
 
         devicesTableBody.addEventListener("click", (event) => {
           if (event.target.classList.contains("delete-button")) {
